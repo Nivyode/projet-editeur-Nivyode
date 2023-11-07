@@ -19,7 +19,6 @@ public class CommandeModifierBackground extends Commande{
 		this.idBackGround = id;
 	}
 	
-
 	@Override
 	public void executer() {
 		System.out.println("CommandeModifierBackground.executer()");
@@ -30,7 +29,8 @@ public class CommandeModifierBackground extends Commande{
 	@Override
 	public void annuler() {
 		System.out.println("CommandeModifierBackground.annuler()");
-		
+		Hero.getInstance().setBackgroundActuel(ancienBackground);
+		vue.VuePimpMyHero.getInstance().changerAsset(this.itemChoisi, Integer.parseInt(ancienBackground.toString().substring(10)));	
 	}
 	
 }
