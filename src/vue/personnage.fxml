@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="1263.0" style="-fx-background-color: #929292;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="1263.0" style="-fx-background-color: #929292;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox prefHeight="680.0" prefWidth="82.0" style="-fx-background-color: #282828;">
          <opaqueInsets>
@@ -45,8 +45,8 @@
             </Pane>
             <Pane prefHeight="236.0" prefWidth="82.0">
                <children>
-                  <Label layoutX="22.0" layoutY="98.0" prefHeight="38.0" prefWidth="39.0" text="A Venir" textFill="RED" />
-                  <Button id="bouton-annuler" layoutY="17.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="89.0" style="-fx-opacity: 0%;" text="Button" />
+                  <Label layoutX="22.0" layoutY="98.0" prefHeight="38.0" prefWidth="39.0" text="Undo" textFill="RED" />
+                  <Button id="bouton-undo" layoutY="17.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="89.0" style="-fx-opacity: 0%;" text="Button" />
                </children>
             </Pane>
          </children>

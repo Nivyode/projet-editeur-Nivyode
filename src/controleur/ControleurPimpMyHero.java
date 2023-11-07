@@ -2,10 +2,13 @@ package controleur;
 
 import architecture.Controleur;
 import architecture.Vue;
+import commande.Commande;
+import commande.CommandeModifierBackground;
 import javafx.scene.control.ColorPicker;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 import java.util.Timer;
 
 import com.sun.media.jfxmedia.logging.Logger;
@@ -31,6 +34,8 @@ public class ControleurPimpMyHero extends Controleur {
 	private Animal.ANIMAL animalChoisi;
 	private List<Animal> listeAnimalActuel;
 	private boolean isSuppressionActive = false;
+	
+	private Stack<Commande> listeUndo = new Stack<Commande>();
 
 
     public ControleurPimpMyHero() {
@@ -231,7 +236,12 @@ public class ControleurPimpMyHero extends Controleur {
     		break;
     		
     	case BACKGROUND:
-    		Hero.getInstance().setBackgroundActuel(BACKGROUND.valueOf("BACKGROUND" + id));
+    		BACKGROUND ancienBackground = Hero.getInstance().getBackgroundActuel();
+    		BACKGROUND nouveauBackground = BACKGROUND.valueOf("BACKGROUND" + id);
+    		CommandeModifierBackground commandeModifierBackground = new CommandeModifierBackground(ancienBackground, nouveauBackground);
+    		listeUndo.add(commandeModifierBackground);
+    		commandeModifierBackground.executer();
+
     		vue.VuePimpMyHero.getInstance().changerAsset(itemChoisi, id);
     		System.out.println("Hero.getInstance().getBackgroundActuel() : " + Hero.getInstance().getBackgroundActuel().toString());
     		break;

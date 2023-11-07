@@ -54,7 +54,7 @@ public class VuePimpMyHero extends Vue {
         boutons.add("#bouton-selection-background");
         boutons.add("#bouton-telechargement");
         boutons.add("#bouton-supprimer");
-        boutons.add("#bouton-annuler");
+        boutons.add("#bouton-undo");
         for (int boutonChoix = 1; boutonChoix < 6; boutonChoix++) {
             boutons.add("#bouton-choix-" + boutonChoix);
         }

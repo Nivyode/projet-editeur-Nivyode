@@ -35,14 +35,18 @@
             <Pane prefHeight="230.0" prefWidth="82.0">
                <children>
                   <Line endX="79.99998474121094" endY="228.79998779296875" startX="-1.220703143189894E-5" startY="228.79998779296875" stroke="#b4b4b4" style="-fx-opacity: 25%;" />
-                  <Button id="bouton-refaire" layoutX="-4.0" mnemonicParsing="false" prefHeight="229.0" prefWidth="89.0" style="-fx-opacity: 0%;" text="Button" />
-                  <Label layoutX="20.0" layoutY="85.0" prefHeight="38.0" prefWidth="39.0" text="A Venir" textFill="RED" />
+                  <ImageView fitHeight="98.0" fitWidth="98.0" layoutX="-8.0" layoutY="65.0" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icones/supprimer.png" />
+                     </image>
+                  </ImageView>
+                  <Button id="bouton-supprimer" layoutX="-4.0" mnemonicParsing="false" prefHeight="229.0" prefWidth="89.0" style="-fx-opacity: 0%;" text="Button" />
                </children>
             </Pane>
             <Pane prefHeight="236.0" prefWidth="82.0">
                <children>
-                  <Label layoutX="22.0" layoutY="98.0" prefHeight="38.0" prefWidth="39.0" text="A Venir" textFill="RED" />
-                  <Button id="bouton-annuler" layoutY="17.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="89.0" style="-fx-opacity: 0%;" text="Button" />
+                  <Label layoutX="22.0" layoutY="98.0" prefHeight="38.0" prefWidth="39.0" text="Undo" textFill="RED" />
+                  <Button id="bouton-undo" layoutY="17.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="89.0" style="-fx-opacity: 0%;" text="Button" />
                </children>
             </Pane>
          </children>
