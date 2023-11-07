@@ -22,6 +22,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import modele.Animal;
 import modele.Animal.ANIMAL;
 import modele.Assets;
 import org.w3c.dom.Text;
@@ -33,7 +34,7 @@ public class VuePimpMyHero extends Vue {
     protected List<String> boutons;
     protected ColorPicker cp;
     protected ImageView pushedBouton;
-    protected int compteurAnimaux = 0;
+    public int compteurAnimaux = 0;
 
     public static VuePimpMyHero getInstance() {
         if (null == instance) instance = new VuePimpMyHero();
@@ -326,11 +327,11 @@ public class VuePimpMyHero extends Vue {
         label.setTextFill(value);
     }
 
-	public String ajouterAnimal(double x, double y, ANIMAL animalChoisi) {
+	public void ajouterAnimal(Animal animal) {
 		
 		ImageView animalAjoute = new ImageView();
 		
-		switch (animalChoisi) {
+		switch (animal.getAnimal()) {
 			case ANIMAL1:
 				animalAjoute.setImage(new Image("vue/images/animal/animal1.png"));
 				break;
@@ -350,9 +351,10 @@ public class VuePimpMyHero extends Vue {
 
 		animalAjoute.setPreserveRatio(true);
 		animalAjoute.setFitHeight(Assets.getAssetSize(Assets.ASSETS.ANIMAL));
-		animalAjoute.setX(x - 10);
-		animalAjoute.setY(y - 15);
-        animalAjoute.setId("animal-" + compteurAnimaux++);
+		animalAjoute.setX(animal.getX() - 10);
+		animalAjoute.setY(animal.getY() - 15);
+		animalAjoute.setId(animal.getId());
+        //animalAjoute.setId("animal-" + compteurAnimaux++);
         System.out.println("animalAjoute.getId() : " + animalAjoute.getId());
 
 		AnchorPane terrain = (AnchorPane)lookup("#terrain-de-creation");
@@ -365,7 +367,7 @@ public class VuePimpMyHero extends Vue {
 
         reorganiserLayers();
 
-        return animalAjoute.getId();
+        //return animalAjoute.getId();
 	}
 
     public void ajouterEffetPush(String id) {

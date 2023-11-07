@@ -41,4 +41,12 @@ public class Animal {
 		return animal.toString() + "<coordX>" + x + "</coordX>" + "<coordY>" + y + "</coordY>";
 	}
 
+	public double getX() {
+		return x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
 }

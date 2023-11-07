@@ -3,7 +3,9 @@ package controleur;
 import architecture.Controleur;
 import architecture.Vue;
 import commande.Commande;
+import commande.CommandeModifierAnimal;
 import commande.CommandeModifierBackground;
+import commande.CommandeModifierCouleurTexte;
 import javafx.scene.control.ColorPicker;
 
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ import modele.Assets;
 import modele.Assets.ASSETS;
 import modele.ElementChargable;
 import modele.Hero;
+import modele.Animal.ANIMAL;
 import modele.Hero.ARMURE;
 import modele.Hero.BACKGROUND;
 import modele.Hero.BOTTES;
@@ -268,16 +271,29 @@ public class ControleurPimpMyHero extends Controleur {
 	public void notifierAjoutAnimal(double x, double y) {
 		Logger.logMsg(Logger.INFO, "notifierAjoutAnimal");
 		if (animalChoisi != null && !isSuppressionActive) {
-			String id = VuePimpMyHero.getInstance().ajouterAnimal(x, y, animalChoisi);
-			listeAnimalActuel.add(new Animal(animalChoisi, x, y, id));
-			Hero.getInstance().setAnimals(listeAnimalActuel);
+			VuePimpMyHero.getInstance().compteurAnimaux ++;
+			String id = "animal-" + VuePimpMyHero.getInstance().compteurAnimaux ++ ;
+			Animal animal = new Animal(animalChoisi, x, y, id);
+			listeAnimalActuel.add(animal);
+			
+			
+			CommandeModifierAnimal CommandeModifierAnimal = new CommandeModifierAnimal(animal);
+			listeUndo.add(CommandeModifierAnimal);
+			CommandeModifierAnimal.executer();
+			//String id = VuePimpMyHero.getInstance().ajouterAnimal(x, y, animalChoisi);
+			
+
+			
+			
 		}
 	}
     
 	public void notifierSelectionColorPicker(ColorPicker cp) {
 		Logger.logMsg(Logger.INFO, "notifierSelectionColorPicker");
-		VuePimpMyHero.getInstance().changerCouleurLabel(cp.getValue());
-		Hero.getInstance().setCouleurNom(cp.getValue());
+		
+		CommandeModifierCouleurTexte CommandeModifierCouleurTexte = new CommandeModifierCouleurTexte(cp.getValue());
+		listeUndo.add(CommandeModifierCouleurTexte);
+		CommandeModifierCouleurTexte.executer();
 	}
 
 	public void notifierChangementTitre(String text) {
