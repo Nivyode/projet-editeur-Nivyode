@@ -14,14 +14,10 @@ public class CommandeModifierAnimal extends Commande {
 	public void executer() {
 		VuePimpMyHero.getInstance().ajouterAnimal(animal);
 		
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void annuler() {
-		// TODO Auto-generated method stub
-		
+		VuePimpMyHero.getInstance().supprimerAsset(animal.getId());
 	}
-
 }
