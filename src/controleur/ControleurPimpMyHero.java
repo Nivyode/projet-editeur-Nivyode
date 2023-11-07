@@ -168,6 +168,7 @@ public class ControleurPimpMyHero extends Controleur {
     		break;
     	case 8 :
     		//#bouton-annuler
+    		listeUndo.pop().annuler();
     		break;
     	case 9 :
     		//#bouton-choix-1
@@ -236,14 +237,9 @@ public class ControleurPimpMyHero extends Controleur {
     		break;
     		
     	case BACKGROUND:
-    		BACKGROUND ancienBackground = Hero.getInstance().getBackgroundActuel();
-    		BACKGROUND nouveauBackground = BACKGROUND.valueOf("BACKGROUND" + id);
-    		CommandeModifierBackground commandeModifierBackground = new CommandeModifierBackground(ancienBackground, nouveauBackground);
+    		CommandeModifierBackground commandeModifierBackground = new CommandeModifierBackground(id, itemChoisi);
     		listeUndo.add(commandeModifierBackground);
     		commandeModifierBackground.executer();
-
-    		vue.VuePimpMyHero.getInstance().changerAsset(itemChoisi, id);
-    		System.out.println("Hero.getInstance().getBackgroundActuel() : " + Hero.getInstance().getBackgroundActuel().toString());
     		break;
     		
     	case ANIMAL:
