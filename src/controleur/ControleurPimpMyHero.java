@@ -5,6 +5,7 @@ import architecture.Vue;
 import commande.Commande;
 import commande.CommandeModifierAnimal;
 import commande.CommandeModifierBackground;
+import commande.CommandeModifierCasque;
 import commande.CommandeModifierCouleurTexte;
 import javafx.scene.control.ColorPicker;
 
@@ -216,9 +217,10 @@ public class ControleurPimpMyHero extends Controleur {
 
     	switch(itemChoisi) {
     	case CASQUE:
-    		Hero.getInstance().setCasqueActuel(CASQUE.valueOf("CASQUE" + id));
-    		vue.VuePimpMyHero.getInstance().changerAsset(itemChoisi, id);
-    		System.out.println("Hero.getInstance().getCasqueActuel() : " + Hero.getInstance().getCasqueActuel().toString());
+    		
+    		CommandeModifierCasque commandeModifierCasque = new CommandeModifierCasque(id, itemChoisi);
+    		listeUndo.add(commandeModifierCasque);
+    		commandeModifierCasque.executer();
     		break;
     		
     	case ARMURE:
