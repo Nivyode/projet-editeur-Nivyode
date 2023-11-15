@@ -63,33 +63,8 @@ public class VuePimpMyHero extends Vue {
         creerBadge();
         }
     private void creerBadge() {
-    	/*
-		AnchorPane composant = new AnchorPane();
-		composant.setPrefHeight(200);
-		composant.setPrefWidth(166);
-    	ImageView background = new ImageView();
-    	background.setImage(new Image("vue/images/badge/bois-flotant.png"));
-		composant.getChildren().add(background);
-		
-		AnchorPane espace = (AnchorPane)lookup("#espace-travail");
-		espace.getChildren().add(composant);
-		*/
-    	AnchorPane composant = new AnchorPane();
-		composant.setPrefHeight(200);
-		composant.setPrefWidth(166);
-		composant.setStyle("-fx-background-color: #65350F;");
-		
-    	ImageView background = new ImageView();
-    	background.setImage(new Image("vue/images/badge/badge.png"));
-		composant.getChildren().add(background);
-		
-    	ImageView symbole = new ImageView();
-    	symbole.setImage(new Image("vue/images/badge/templiers.png"));
-    	symbole.setLayoutX(40);
-    	symbole.setLayoutY(40);
-		composant.getChildren().add(symbole);
-		
-		AnchorPane cloture = (AnchorPane)lookup("#espace-travail");
+    	BadgeBouclier composant = (BadgeBouclier) new BadgeBouclier();
+    	AnchorPane cloture = (AnchorPane)lookup("#espace-travail");
 		cloture.getChildren().add(composant);
     }
 
