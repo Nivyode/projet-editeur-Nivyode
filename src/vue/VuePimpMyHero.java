@@ -83,6 +83,12 @@ public class VuePimpMyHero extends Vue {
     	background.setImage(new Image("vue/images/badge/badge.png"));
 		composant.getChildren().add(background);
 		
+    	ImageView symbole = new ImageView();
+    	symbole.setImage(new Image("vue/images/badge/templiers.png"));
+    	symbole.setLayoutX(40);
+    	symbole.setLayoutY(40);
+		composant.getChildren().add(symbole);
+		
 		AnchorPane cloture = (AnchorPane)lookup("#espace-travail");
 		cloture.getChildren().add(composant);
     }
