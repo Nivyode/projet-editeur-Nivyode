@@ -60,6 +60,31 @@ public class VuePimpMyHero extends Vue {
             boutons.add("#bouton-choix-" + boutonChoix);
         }
         cp = (ColorPicker) lookup("#colorpicker");
+        creerBadge();
+        }
+    private void creerBadge() {
+    	/*
+		AnchorPane composant = new AnchorPane();
+		composant.setPrefHeight(200);
+		composant.setPrefWidth(166);
+    	ImageView background = new ImageView();
+    	background.setImage(new Image("vue/images/badge/bois-flotant.png"));
+		composant.getChildren().add(background);
+		
+		AnchorPane espace = (AnchorPane)lookup("#espace-travail");
+		espace.getChildren().add(composant);
+		*/
+    	AnchorPane composant = new AnchorPane();
+		composant.setPrefHeight(200);
+		composant.setPrefWidth(166);
+		composant.setStyle("-fx-background-color: #65350F;");
+		
+    	ImageView background = new ImageView();
+    	background.setImage(new Image("vue/images/badge/badge.png"));
+		composant.getChildren().add(background);
+		
+		AnchorPane cloture = (AnchorPane)lookup("#espace-travail");
+		cloture.getChildren().add(composant);
     }
 
     public List<String> getBoutons() {
