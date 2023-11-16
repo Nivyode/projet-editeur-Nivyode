@@ -25,6 +25,10 @@ import javafx.scene.paint.Color;
 import modele.Animal;
 import modele.Animal.ANIMAL;
 import modele.Assets;
+import vue.BadgeBouclier.BADGE;
+import vue.BadgeBouclier.COULEUR;
+import vue.BadgeBouclier.SYMBOLE;
+
 import org.w3c.dom.Text;
 
 public class VuePimpMyHero extends Vue {
@@ -63,7 +67,7 @@ public class VuePimpMyHero extends Vue {
         creerBadge();
         }
     private void creerBadge() {
-    	BadgeBouclier composant = (BadgeBouclier) new BadgeBouclier();
+    	BadgeBouclier composant = (BadgeBouclier) new BadgeBouclier().deCouleur(COULEUR.CAFE).avecBadge(BADGE.ARRONDI).avecSymbole(SYMBOLE.ETOILE).avecTexte("Message");
     	AnchorPane cloture = (AnchorPane)lookup("#espace-travail");
 		cloture.getChildren().add(composant);
     }
